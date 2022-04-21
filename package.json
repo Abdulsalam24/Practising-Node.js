@@ -1,0 +1,22 @@
+{
+  "name": "practice-node",
+  "version": "1.0.0",
+  "description": "node course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdulsalam24/Practising-Node.js.git"
+  },
+  "author": "abdulsalam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abdulsalam24/Practising-Node.js/issues"
+  },
+  "homepage": "https://github.com/Abdulsalam24/Practising-Node.js#readme",
+  "devDependencies": {
+    "nodeman": "^1.1.2"
+  }
+}
