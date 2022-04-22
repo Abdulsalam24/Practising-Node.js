@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Abdulsalam24/Practising-Node.js#readme",
   "devDependencies": {
     "nodeman": "^1.1.2"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
   }
 }
