@@ -1,12 +1,35 @@
-const fs = require('fs');
-const path = require('path');
-const os = require('os')
-const express = require('express')
-// const url = require('url')
+const http = require("http");
+const path = require("path");
+const fs = require("fs");
 
-const myUrl = new URL ('http://mysite.com/hello.html?id=100&status=100')
+const server = http.createServer((req, res) => {
+  if (req.url === "/api/user") {
+    const user = [
+      {
+        name: "abd",
+        age: 18,
+      },
+      {
+        name: "salam",
+        age: 19,
+      },
+    ];
+    res.end(JSON.stringify(user));
+    res.writeHead(200, { "content-Type": "application.js" });
+  }
+});
 
-console.log(myUrl.searchParams)
-myUrl.searchParams.append('htis' , 'abc')
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => console.log(`server running...${PORT}`));
 
-myUrl.searchParams.forEach((value , name) => console.log(`this is the ${value} and the ${name}`))
+
+//   if (req.url === "/") {
+//     fs.readFile(
+//       path.join(__dirname, "public", "index.html"),
+//       (err, content) => {
+//         if (err) throw err;
+//         res.writeHead(200, { "content-Type": "text/html" });
+//         res.end(content);
+//       }
+//     );
+//   }

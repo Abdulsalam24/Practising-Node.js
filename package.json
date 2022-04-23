@@ -4,7 +4,8 @@
   "description": "node course",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "repository": {
     "type": "git",
@@ -16,10 +17,9 @@
     "url": "https://github.com/Abdulsalam24/Practising-Node.js/issues"
   },
   "homepage": "https://github.com/Abdulsalam24/Practising-Node.js#readme",
-  "devDependencies": {
-    "nodeman": "^1.1.2"
-  },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
+    "uuid": "^8.3.2"
   }
 }
