@@ -1,73 +1,57 @@
-const http = require('http');
-const path = require('path');
-const fs = require('fs');
+const express = require('express')
 
-const server = http.createServer((req, res) => {
-  let filePath = path.join(
-    __dirname,
-    'public',
-    req.url === '/' ? 'index.html' : req.url
-  );
+const app = express()
 
-  let extname = path.extname(filePath);
+app.listen(3000)
 
-  console.log(extname);
 
-  let contentType = 'text/html';
+app.get('/' , (req , res) => {
+    res.sendFile('./public/index.html' , {root : __dirname})
+})
 
-  switch (extname) {
-    case '.js':
-      contentType = 'text/javascript';
-      break;
+app.get('/about' , (req , res) => {
+    res.sendFile('./public/about.html' , {root : __dirname})
+})
+app.get('/about-us' , (req , res) => {
+    res.redirect('/about')
+})
 
-    case '.css':
-      contentType = 'text/css';
-      break;
 
-    case '.json':
-      contentType = 'application/json';
-      break;
 
-    case '.png':
-      contentType = 'text/png';
-      break;
-  }
 
-  fs.readFile(filePath, (err, content) => {
-    if (err) {
-      if (err.code == 'ENOENT') {
-        fs.readFile(
-          path.join(__dirname, 'public', '404.html'),
-          (err, content) => {
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end(content, 'htf8');
-          }
-        );
-      } else {
-        res.writeHead(500);
-        res.end(`server down ${err}`);
-      }
-    } else {
-      res.writeHead(200, { 'Content-Type': contentType });
-      res.end(content, 'utf8');
-    }
-  });
-});
+app.use((req , res) => {
+    res.sendFile('./public/404.html' , {root : __dirname})
+})
 
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`server running on  port${PORT}`));
 
-// if (req.url === '/api/user') {
-//   const user = [
-//     {
-//       name: 'abd',
-//       age: 18,
-//     },
-//     {
-//       name: 'salam',
-//       age: 19,
-//     },
-//   ];
-//   res.end(JSON.stringify(user));
-//   res.writeHead(200, { 'content-Type': 'application.js' });
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const express = require('express');
+
+// const app = express();
+
+// app.listen(3000);
+
+// app.get('/' , (req , res) => {
+//     res.send(`<p>this is it</p>`)
+// })
+
+// // app.get('/about' , (req , res) => {
+// //     res.sendFile('./public/about.html' , {root : __dirname})
+// // })
