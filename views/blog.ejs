@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blog</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/create/blog">Blog</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <h1>Welcome to Blog Site</h1>
+    </section>
+    <section>
+      <form>
+        <label for="">title</label>
+        <input type="text">
+
+        <label for="">comment</label>
+        <input type="text">
+
+        <label for="">blog body : </label>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+      </form>
+    </section>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>
