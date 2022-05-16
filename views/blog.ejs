@@ -2,30 +2,26 @@
 <html lang="en">
   <%- include('./partials/head.ejs') %>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/create/blog">Blog</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section>
-      <h1>Welcome to Blog Site</h1>
-    </section>
-    <section>
-      <form>
-        <label for="">title</label>
-        <input type="text">
+    <%- include('./partials/nav.ejs') %>
+    <div class="container">
+      <section>
+        <h1>Welcome to Blog Site</h1>
+      </section>
+      <section>
+        <form> 
+          <label for="">title :</label>
+          <input type="text" />
 
-        <label for="">comment</label>
-        <input type="text">
+          <label for="">comment : </label>
+          <input type="text" />
 
-        <label for="">blog body : </label>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-      </form>
-    </section>
+          <label for="">blog body : </label>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+
+          <button>submit</button>
+        </form>
+      </section>
+    </div>
     <%- include('./partials/footer.ejs') %>
   </body>
 </html>

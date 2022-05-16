@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  
   <%- include('./partials/head.ejs') %>
 
   <body>
     <%- include('./partials/nav.ejs') %>
 
-    <section>
-      <h1>Welcome to ABD Blog Site</h1>
-    </section>
-
-    <div>
-      <% if(blogs.length > 0) { %> <% blogs.forEach(blog => { %>
-
-      <div>
-        <h3><%= blog.title %></h3>
-        <p><%= blog.author %></p>
+    <div class="container">
+      <section>
+        <h1>Welcome to ABD Blog Site</h1>
+      </section>
+  
+      <div class="content">
+        <% if(blogs.length > 0) { %> <% blogs.forEach(blog => { %>
+        <div>
+          <a href="/">
+            <h3><%= blog.title %></h3>
+            <p><%= blog.author %></p>
+          </a>
+        </div>
+  
+        <% }) %> <% } else {%>
+        <p>no item</p>
+  
+        <% } %>
       </div>
-
-      <% }) %> <% } else {%>
-      <p>no item</p>
-
-      <% } %>
     </div>
     <%- include('./partials/footer.ejs') %>
   </body>

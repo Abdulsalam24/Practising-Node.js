@@ -1,34 +1,77 @@
-const express = require('express')
-const morgan = require('morgan')
+const express = require("express");
+const mongoose = require("mongoose");
+const Blog = require('./models/blog')
 
-const app = express()
+const app = express();
 
-app.set('view engine' , 'ejs')
+const dbURL = "mongodb+srv://abd:abd1234@cluster0.l6kmq.mongodb.net/node-tuts?retryWrites=true&w=majority";
 
-app.listen(3000)
+mongoose.connect(dbURL)
+  .then((result) => app.listen(3000))
+  .catch((err) => console.log("error"));
 
-app.use(express.static('public'))
+app.set("view engine", "ejs");
 
-app.get('/' , (req , res) => {
-    const blogs =[
-        {title : 'chicken' , author : 'samuel'},
-        {title : 'turkey' , author : 'emma'},
-        {title : 'cow' , author : 'ejiro'}
-    ]
-    res.render('index' , {blog : 'this is cool' , blogs});
-})
 
-app.get('/about' , (req , res) => {
-    res.render('about');
-})
+app.use(express.static("public"));
 
-app.get('/create/blog' , (req , res) => {
-    res.render('blog');
-})
+app.get("/", (req, res) => {
+  // res.redirect('/blogs')
+  Blog.find()
+  .then((result) => {
+    res.render('index' , {blogs : result})
+  })
+  .catch((error) => console.log(error))
+});
 
-app.use((req , res) => {
-    res.status(404).render('404');
-})
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+
+//blogs
+
+
+// app.get('/blogs' , (req , res) => {
+//   Blog.find()
+//     .then((result) => {
+//       res.render('index' , {blogs : result})
+//     })
+//     .catch((error) => console.log(error))
+// })
+
+
+app.get("/create/blog", (req, res) => {
+  res.render("blog");
+});
+
+app.use((req, res) => {
+  res.status(404).render("404");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -39,31 +82,9 @@ app.use((req , res) => {
 //     res.redirect('/about')
 // })
 
-
-
-
 // app.use((req , res) => {
 //     res.status(404).sendFile('./public/404.html' , {root : __dirname})
 // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const express = require('express');
 

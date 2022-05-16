@@ -1,4 +1,140 @@
-body{
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  background-color: #f5f5f5;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  background-color: #1c1c1c;
+}
+
+nav > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+nav > div > div:nth-child(1) h1 {
+  color: #ffffff;
+  font-size: clamp(1rem, 2.5vw, 4rem);
+}
+
+nav > div ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav > div ul li {
+  margin: 0 1rem;
+  list-style: none;
+}
+
+nav > div ul li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+nav > div ul li a:hover {
+  color: crimson;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+}
+
+.container section:nth-child(1) {
+  text-align: center;
+}
+
+.container section:nth-child(1) h1 {
+  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  margin: 1rem 0;
+  color: crimson;
+}
+
+.container section:nth-child(2) form {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+.container section:nth-child(2) form input, .container section:nth-child(2) form textarea {
+  border: 1px solid #6f6f6f;
+  margin: 0.5rem 0 1.5rem 0;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+}
+
+.container section:nth-child(2) form input {
+  padding: 0.5rem;
+}
+
+.container section:nth-child(2) form label {
+  text-transform: capitalize;
+}
+
+.container section:nth-child(2) form button {
+  background-color: crimson;
+  color: white;
+  padding: 1em 1.5em;
+  font-size: 0.8rem;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.container .content > div a {
+  margin: 1rem 0;
+  border-left: 2px solid crimson;
+  display: block;
+  padding: 1rem 0 1rem 1rem;
+  color: black;
+  -webkit-box-shadow: 2px 2px 7px #d5d5d5;
+          box-shadow: 2px 2px 7px #d5d5d5;
+  text-transform: capitalize;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.container .content > div a h3 {
+  margin: 1rem 0;
+}
+
+.container .content > div a:hover {
+  -webkit-box-shadow: 0.5px 0.5px 1px #d5d5d5;
+          box-shadow: 0.5px 0.5px 1px #d5d5d5;
+  border-left: 2px solid #64081a;
+  -webkit-transform: scale(1.06);
+          transform: scale(1.06);
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+}
+/*# sourceMappingURL=style.css.map */
