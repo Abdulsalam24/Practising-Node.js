@@ -68,10 +68,43 @@ nav > div ul li a:hover {
 }
 
 .container section:nth-child(1) h1 {
+  text-transform: capitalize;
   text-align: center;
   font-size: clamp(1rem, 2.5vw, 2rem);
   margin: 1rem 0;
   color: crimson;
+}
+
+.container section:nth-child(1) p {
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.container section:nth-child(1) .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container section:nth-child(1) .flex a {
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.container section:nth-child(1) .flex a:hover {
+  -webkit-box-shadow: 1px 1px 4px #b5b5b5;
+          box-shadow: 1px 1px 4px #b5b5b5;
+  background-color: crimson;
+  color: #ffffff;
 }
 
 .container section:nth-child(2) form {

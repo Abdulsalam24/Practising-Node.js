@@ -8,45 +8,73 @@ const dbURL = "mongodb+srv://abd:abd1234@cluster0.l6kmq.mongodb.net/node-tuts?re
 
 mongoose.connect(dbURL)
   .then((result) => app.listen(3000))
-  .catch((err) => console.log("error"));
+  .catch((err) => console.log(err , "error1"));
 
 app.set("view engine", "ejs");
-
-
 app.use(express.static("public"));
+app.use(express.urlencoded({extended : true}))
+
 
 app.get("/", (req, res) => {
-  // res.redirect('/blogs')
-  Blog.find()
-  .then((result) => {
-    res.render('index' , {blogs : result})
-  })
-  .catch((error) => console.log(error))
+  res.redirect("/blogs")
 });
 
 app.get("/about", (req, res) => {
-  res.render("about");
+  res.render("about")
 });
 
-//blogs
+///blogs
 
+app.get("/blogs" , (req , res) => {
+  Blog.find().sort({createdAt : -1})
+    .then((result) => {
+      res.render("index" , {blogs : result})
+    })
+    .catch((error) => console.log('error1'))
+})
 
-// app.get('/blogs' , (req , res) => {
-//   Blog.find()
-//     .then((result) => {
-//       res.render('index' , {blogs : result})
-//     })
-//     .catch((error) => console.log(error))
-// })
+app.post("/blogs" , (req , res) => {
+  const blog = new Blog(req.body);
+
+  blog.save()
+    .then((result) => {
+      res.redirect("/blogs")
+    })
+    .catch((error) => console.log('error'))
+})
+
+app.get('/blogs/:id' , (req , res) => {
+  const id = req.params.id;
+
+  Blog.findById(id)
+  .then((result) => {
+    res.render('details' , {blog : result})
+  })
+  .catch((error) => console.log(error))
+})
+
+app.delete('/blogs/:id' , (req , res) => {
+  const id = req.params.id;
+
+  Blog.findByIdAndDelete(id)
+  .then(response => {
+    res.json({ redirect : '/blogs'})
+  })
+  .catch((error) => console.log(error))
+})
 
 
 app.get("/create/blog", (req, res) => {
   res.render("blog");
 });
 
+
+
+
 app.use((req, res) => {
   res.status(404).render("404");
 });
+
 
 
 

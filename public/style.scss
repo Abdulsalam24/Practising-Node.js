@@ -52,12 +52,33 @@ nav {
     section:nth-child(1){
         text-align: center;
         h1{
+            text-transform: capitalize;
             text-align: center;
             font-size: clamp(1rem , 2.5vw , 2rem);
             margin: 1rem 0;
             color: crimson;
         }
-
+        p{
+            font-size: 1.1rem;
+            text-align: left;
+        }
+        .flex{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            a{
+                padding: 1rem;
+                // box-shadow: 1px 1px 4px rgb(181, 181, 181);
+                border-radius: 50%;
+                cursor: pointer;
+                &:hover{
+                    box-shadow: 1px 1px 4px rgb(181, 181, 181);
+                    background-color: crimson;
+                    color: #ffffff;
+                }
+            }
+        }
     }
     section:nth-child(2){
         form{
@@ -90,6 +111,7 @@ nav {
             }
         }
     }
+
     
     .content{
         >div{
@@ -119,6 +141,7 @@ nav {
 }
 
 footer{
+    
     text-align: center;
     margin-top: 3rem;
 }

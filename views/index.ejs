@@ -13,9 +13,9 @@
       <div class="content">
         <% if(blogs.length > 0) { %> <% blogs.forEach(blog => { %>
         <div>
-          <a href="/">
+          <a href="/blogs/<%= blog.id %>">  
             <h3><%= blog.title %></h3>
-            <p><%= blog.author %></p>
+            <p><%= blog.snippet %></p>
           </a>
         </div>
   
