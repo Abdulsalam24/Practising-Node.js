@@ -24,10 +24,12 @@
         del.addEventListener('click' , (e) => {
             const endPoint = `/blog/${del.dataset.doc}`
 
+            
             fetch(endPoint , {method : 'DELETE'})
             .then((response) => response.json())
             .then((data) => console.log(data))
             .catch((error) => console.log(error))
+
         })
     </script>
   </body>
