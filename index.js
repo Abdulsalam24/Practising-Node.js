@@ -14,7 +14,6 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({extended : true}))
 
-
 app.get("/", (req, res) => {
   res.redirect("/blogs")
 });
@@ -57,11 +56,12 @@ app.delete('/blogs/:id' , (req , res) => {
   const id = req.params.id;
 
   Blog.findByIdAndDelete(id)
-  .then(response => {
+  .then(result => {
     res.json({ redirect : '/blogs'})
   })
   .catch((error) => console.log(error))
 })
+
 
 
 app.get("/create/blog", (req, res) => {
